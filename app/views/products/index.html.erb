@@ -13,6 +13,7 @@
           <th>URL</th>
           <th>Descripción</th>
           <th></th>
+          <th></th>
         </tr>
         <% @products.each do |product| %>
           <tr>
@@ -20,7 +21,11 @@
             <td><%= link_to product.name, product %></td>
             <td><%= product.url %></td>
             <td><%= product.description %></td>
-            <td><%= link_to 'editar', edit_product_path(product) %></td>
+            <td>
+              <%= link_to 'editar', edit_product_path(product) %>
+              <%= link_to 'eliminar', product, method: :delete, data:{confirm: "¿estas seguro de eliminar este producto?"} %>
+                
+            </td>
           </tr>
         <% end %>
       </table>
